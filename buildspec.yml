@@ -11,4 +11,4 @@ phases:
     
   build:
     commands:
-    - mvn clean verify -f jmeter-example.jmx
+    - mvn clean verify 
