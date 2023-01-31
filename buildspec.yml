@@ -8,3 +8,7 @@ phases:
   pre_build:
     commands:
     - mvn --version
+    
+  build:
+    commands:
+    - mvn clean verify -f jmeter-example.jmx
