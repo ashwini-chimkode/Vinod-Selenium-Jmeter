@@ -12,3 +12,10 @@ phases:
   build:
     commands:
     - mvn clean verify 
+
+
+artifacts:
+  files:
+    - src
+    - pom.xml
+    - buildspec.yml
