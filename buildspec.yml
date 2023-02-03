@@ -11,7 +11,8 @@ phases:
     
   build:
     commands:
-    - mvn clean verify 
+    - mvn clean verify
+    
 
 
 artifacts:
