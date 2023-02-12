@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 version: 0.2
 
 phases:
@@ -19,4 +20,27 @@ artifacts:
   files:
     - src
     - pom.xml
+=======
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+
+  pre_build:
+    commands:
+    - mvn --version
+    
+  build:
+    commands:
+    - mvn clean verify
+    
+
+
+artifacts:
+  files:
+    - src
+    - pom.xml
+>>>>>>> 7f2e602a64eb5908af8811700f7cb52daaf3660a
     - buildspec.yml
