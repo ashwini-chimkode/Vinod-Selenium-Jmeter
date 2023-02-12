@@ -1,46 +1,52 @@
-<<<<<<< HEAD
 version: 0.2
 
 phases:
   install:
     runtime-versions:
-      java: corretto11
+      java: corretto8
 
   pre_build:
     commands:
-    - mvn --version
+      
+      - echo "###############################################################"
+      - echo "Instaling Selenium Test Run Cases Packages on Linux Server"
+      - echo "###############################################################"
+      
+      - echo Installing Google-chrome and Chrome Driver on `date`
+      - yum update -y && yum install wget && yum install -y testng && yum install -y tree
+      - curl https://intoli.com/install-google-chrome.sh | bash
+      - mv /usr/bin/google-chrome-stable /usr/bin/google-chrome
+      - wget https://chromedriver.storage.googleapis.com/109.0.5414.74/chromedriver_linux64.zip
+      - unzip chromedriver_linux64.zip
+      - mv chromedriver /usr/bin/chromedriver
+      - chown root:root /usr/bin/chromedriver
+      - chmod +x /usr/bin/chromedriver
+      - yum install -y google-chrome-stable
+      - wget https://selenium-release.storage.googleapis.com/3.13/selenium-server-standalone-3.13.0.jar
+      - google-chrome --version
+      - chromedriver --version
+      - mvn --version
     
   build:
     commands:
-    - mvn clean verify
-    
+      
+      - echo "##############"
+      - echo "Unit Testing"
+      - echo "##############"
+      
+      - mvn clean test
+      - mv target/surefire-reports/index.html target/surefire-reports/junit-report.html
+      - aws s3 cp target/surefire-reports/junit-report.html s3://dep-junit-selenuim-reports/
+      
+      - echo "###################################"
+      - echo "JMeter Load Performence Testing"
+      - echo "###################################"
+      
+      - mvn clean verify
+      - aws s3 cp target/surefire-reports/jmeter/results/*.CSV s3://dep-junit-selenuim-reports/
 
 
 artifacts:
   files:
     - src
     - pom.xml
-=======
-version: 0.2
-
-phases:
-  install:
-    runtime-versions:
-      java: corretto11
-
-  pre_build:
-    commands:
-    - mvn --version
-    
-  build:
-    commands:
-    - mvn clean verify
-    
-
-
-artifacts:
-  files:
-    - src
-    - pom.xml
->>>>>>> 7f2e602a64eb5908af8811700f7cb52daaf3660a
-    - buildspec.yml
