@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+
+  pre_build:
+    commands:
+    - mvn --version
+    
+  build:
+    commands:
+    - mvn clean verify
+    
+
+
+artifacts:
+  files:
+    - src
+    - pom.xml
+    - buildspec.yml
