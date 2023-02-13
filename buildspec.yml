@@ -42,11 +42,11 @@ phases:
       - echo "JMeter Load Performence Testing"
       - echo "###################################"
       
-      - mvn clean verify
+      - mvn verify
       - aws s3 cp target/surefire-reports/jmeter/results/*.CSV s3://dep-junit-selenuim-reports/
 
 
 artifacts:
   files:
     - src
-    - pom.xml
+    - target/surefire-reports
