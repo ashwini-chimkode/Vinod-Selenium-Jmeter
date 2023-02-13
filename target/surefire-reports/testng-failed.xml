@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Selenium-Test-cases]">
+  <test name="testFactory(failed)">
+    <classes>
+      <class name="CalculatorTestSuccessful">
+        <methods>
+          <include name="initCalculator"/>
+          <include name="afterEachTest"/>
+          <include name="beforeEachTest"/>
+        </methods>
+      </class> <!-- CalculatorTestSuccessful -->
+      <class name="TestClassSecond">
+        <methods>
+          <include name="beforeTestTestClassSecond"/>
+        </methods>
+      </class> <!-- TestClassSecond -->
+      <class name="FactoryImplTestSubtract">
+        <methods>
+          <include name="initCalculator"/>
+          <include name="testSubtract"/>
+        </methods>
+      </class> <!-- FactoryImplTestSubtract -->
+      <class name="TestClass">
+        <methods>
+          <include name="beforeMethodTestClass"/>
+          <include name="beforeClassTestClass"/>
+          <include name="afterClassTestClass"/>
+          <include name="afterMethodTestClass"/>
+          <include name="afterTestTestClass"/>
+          <include name="beforeTestTestClass"/>
+          <include name="staticBeforeMethod"/>
+          <include name="beforeMethodWithParamTestClass"/>
+        </methods>
+      </class> <!-- TestClass -->
+      <class name="WelcomeMessageTest">
+        <methods>
+          <include name="testBeforeClass"/>
+          <include name="testAfterClass"/>
+        </methods>
+      </class> <!-- WelcomeMessageTest -->
+      <class name="FactoryImplTestAdd">
+        <methods>
+          <include name="initCalculator"/>
+          <include name="testAdd"/>
+        </methods>
+      </class> <!-- FactoryImplTestAdd -->
+    </classes>
+  </test> <!-- testFactory(failed) -->
+  <test name="testCaculate(failed)">
+    <classes>
+      <class name="CalculatorTestSuccessful">
+        <methods>
+          <include name="initCalculator"/>
+          <include name="testSubstraction"/>
+          <include name="afterEachTest"/>
+          <include name="beforeEachTest"/>
+        </methods>
+      </class> <!-- CalculatorTestSuccessful -->
+      <class name="TestClassSecond">
+        <methods>
+          <include name="beforeTestTestClassSecond"/>
+        </methods>
+      </class> <!-- TestClassSecond -->
+      <class name="FactoryImplTestSubtract">
+        <methods>
+          <include name="initCalculator"/>
+        </methods>
+      </class> <!-- FactoryImplTestSubtract -->
+      <class name="TestClass">
+        <methods>
+          <include name="beforeMethodTestClass"/>
+          <include name="beforeClassTestClass"/>
+          <include name="afterClassTestClass"/>
+          <include name="afterMethodTestClass"/>
+          <include name="afterTestTestClass"/>
+          <include name="beforeTestTestClass"/>
+          <include name="staticBeforeMethod"/>
+          <include name="beforeMethodWithParamTestClass"/>
+        </methods>
+      </class> <!-- TestClass -->
+      <class name="WelcomeMessageTest">
+        <methods>
+          <include name="testBeforeClass"/>
+          <include name="testAfterClass"/>
+        </methods>
+      </class> <!-- WelcomeMessageTest -->
+      <class name="FactoryImplTestAdd">
+        <methods>
+          <include name="initCalculator"/>
+        </methods>
+      </class> <!-- FactoryImplTestAdd -->
+    </classes>
+  </test> <!-- testCaculate(failed) -->
+  <test name="testMessagePrintout(failed)">
+    <classes>
+      <class name="CalculatorTestSuccessful">
+        <methods>
+          <include name="initCalculator"/>
+          <include name="afterEachTest"/>
+          <include name="beforeEachTest"/>
+        </methods>
+      </class> <!-- CalculatorTestSuccessful -->
+      <class name="TestClassSecond">
+        <methods>
+          <include name="beforeTestTestClassSecond"/>
+        </methods>
+      </class> <!-- TestClassSecond -->
+      <class name="FactoryImplTestSubtract">
+        <methods>
+          <include name="initCalculator"/>
+        </methods>
+      </class> <!-- FactoryImplTestSubtract -->
+      <class name="TestClass">
+        <methods>
+          <include name="beforeMethodTestClass"/>
+          <include name="beforeClassTestClass"/>
+          <include name="afterClassTestClass"/>
+          <include name="afterMethodTestClass"/>
+          <include name="afterTestTestClass"/>
+          <include name="beforeTestTestClass"/>
+          <include name="staticBeforeMethod"/>
+          <include name="beforeMethodWithParamTestClass"/>
+        </methods>
+      </class> <!-- TestClass -->
+      <class name="WelcomeMessageTest">
+        <methods>
+          <include name="testBeforeClass"/>
+          <include name="testWelcomeMessagePage_012"/>
+          <include name="testWelcomeMessagePage_020"/>
+          <include name="testWelcomeMessagePage_010"/>
+          <include name="testWelcomeMessagePage_004"/>
+          <include name="testWelcomeMessagePage_002"/>
+          <include name="testWelcomeMessagePage_013"/>
+          <include name="testWelcomeMessagePage_008"/>
+          <include name="testAfterClass"/>
+          <include name="testWelcomeMessagePage_006"/>
+          <include name="testWelcomeMessagePage_017"/>
+        </methods>
+      </class> <!-- WelcomeMessageTest -->
+      <class name="FactoryImplTestAdd">
+        <methods>
+          <include name="initCalculator"/>
+        </methods>
+      </class> <!-- FactoryImplTestAdd -->
+    </classes>
+  </test> <!-- testMessagePrintout(failed) -->
+  <test name="TestClassSecond(failed)">
+    <classes>
+      <class name="TestClassSecond">
+        <methods>
+          <include name="testUnitClassOne"/>
+          <include name="beforeTestTestClassSecond"/>
+          <include name="testUnitClassTwo"/>
+        </methods>
+      </class> <!-- TestClassSecond -->
+      <class name="CalculatorTestSuccessful">
+        <methods>
+          <include name="initCalculator"/>
+          <include name="afterEachTest"/>
+          <include name="beforeEachTest"/>
+        </methods>
+      </class> <!-- CalculatorTestSuccessful -->
+      <class name="FactoryImplTestSubtract">
+        <methods>
+          <include name="initCalculator"/>
+        </methods>
+      </class> <!-- FactoryImplTestSubtract -->
+      <class name="TestClass">
+        <methods>
+          <include name="beforeMethodTestClass"/>
+          <include name="beforeClassTestClass"/>
+          <include name="afterClassTestClass"/>
+          <include name="afterMethodTestClass"/>
+          <include name="afterTestTestClass"/>
+          <include name="beforeTestTestClass"/>
+          <include name="staticBeforeMethod"/>
+          <include name="beforeMethodWithParamTestClass"/>
+        </methods>
+      </class> <!-- TestClass -->
+      <class name="WelcomeMessageTest">
+        <methods>
+          <include name="testBeforeClass"/>
+          <include name="testAfterClass"/>
+        </methods>
+      </class> <!-- WelcomeMessageTest -->
+      <class name="FactoryImplTestAdd">
+        <methods>
+          <include name="initCalculator"/>
+        </methods>
+      </class> <!-- FactoryImplTestAdd -->
+    </classes>
+  </test> <!-- TestClassSecond(failed) -->
+</suite> <!-- Failed suite [Selenium-Test-cases] -->

@@ -1,0 +1,56 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 58, Failures: 13, Errors: 0, Skipped: 13, Time elapsed: 16.574 sec <<< FAILURE! - in TestSuite
+testAdd(FactoryImplTestAdd)  Time elapsed: 0.035 sec  <<< FAILURE!
+java.lang.AssertionError: expected [5] but found [4]
+	at FactoryImplTestAdd.testAdd(FactoryImplTestAdd.java:30)
+
+testSubtract(FactoryImplTestSubtract)  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.AssertionError: expected [2] but found [3]
+	at FactoryImplTestSubtract.testSubtract(FactoryImplTestSubtract.java:31)
+
+testSubstraction(CalculatorTestSuccessful)  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.AssertionError: expected [true] but found [false]
+	at CalculatorTestSuccessful.testSubstraction(CalculatorTestSuccessful.java:71)
+
+testWelcomeMessagePage_002(WelcomeMessageTest)  Time elapsed: 0.013 sec  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at WelcomeMessageTest.testWelcomeMessagePage_002(WelcomeMessageTest.java:43)
+
+testWelcomeMessagePage_004(WelcomeMessageTest)  Time elapsed: 0.003 sec  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at WelcomeMessageTest.testWelcomeMessagePage_004(WelcomeMessageTest.java:66)
+
+testWelcomeMessagePage_006(WelcomeMessageTest)  Time elapsed: 0.012 sec  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at WelcomeMessageTest.testWelcomeMessagePage_006(WelcomeMessageTest.java:89)
+
+testWelcomeMessagePage_008(WelcomeMessageTest)  Time elapsed: 0.013 sec  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at WelcomeMessageTest.testWelcomeMessagePage_008(WelcomeMessageTest.java:112)
+
+testWelcomeMessagePage_010(WelcomeMessageTest)  Time elapsed: 0.007 sec  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at WelcomeMessageTest.testWelcomeMessagePage_010(WelcomeMessageTest.java:135)
+
+testWelcomeMessagePage_012(WelcomeMessageTest)  Time elapsed: 0.012 sec  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at WelcomeMessageTest.testWelcomeMessagePage_012(WelcomeMessageTest.java:158)
+
+testWelcomeMessagePage_013(WelcomeMessageTest)  Time elapsed: 0.003 sec  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at WelcomeMessageTest.testWelcomeMessagePage_013(WelcomeMessageTest.java:170)
+
+testWelcomeMessagePage_017(WelcomeMessageTest)  Time elapsed: 0.008 sec  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at WelcomeMessageTest.testWelcomeMessagePage_017(WelcomeMessageTest.java:215)
+
+testWelcomeMessagePage_020(WelcomeMessageTest)  Time elapsed: 0.01 sec  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at WelcomeMessageTest.testWelcomeMessagePage_020(WelcomeMessageTest.java:249)
+
+beforeTestTestClassSecond(TestClassSecond)  Time elapsed: 5.009 sec  <<< FAILURE!
+java.lang.AssertionError: expected [false] but found [true]
+	at TestClassSecond.beforeTestTestClassSecond(TestClassSecond.java:8)
+

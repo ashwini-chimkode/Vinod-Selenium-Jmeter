@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CommonUtils.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">OpenURL</a> &gt; <a href="index.source.html" class="el_package">utils</a> &gt; <span class="el_source">CommonUtils.java</span></div><h1>CommonUtils.java</h1><pre class="source lang-java linenums">package utils;
+
+import jxl.Cell;
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+/**
+ * Created by vinodkammara on 12/01/2023.
+ */
+<span class="fc" id="L26">public class CommonUtils {</span>
+
+<span class="fc" id="L28">    private final Logger logger = Logger.getLogger(CommonUtils.class);</span>
+    public WebDriver driver;
+
+    private String getChromeDriverPath() {
+<span class="fc" id="L32">        String osName =  System.getProperty(&quot;os.name&quot;).toLowerCase();</span>
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        if (osName.contains(&quot;win&quot;)) {</span>
+<span class="fc" id="L34">            return &quot;/resources/drivers/windows/chromedriver.exe&quot;;</span>
+        }
+<span class="nc bnc" id="L36" title="All 2 branches missed.">        if (osName.contains(&quot;mac&quot;)){</span>
+<span class="nc" id="L37">            return &quot;/resources/drivers/mac/chromedriver&quot;;</span>
+        }
+<span class="nc" id="L39">        return &quot;/resources/drivers/linux/chromedriver&quot;;</span>
+    }
+
+    private void setExecutableMode(String path) {
+<span class="fc" id="L43">        final File file = new File(path);</span>
+<span class="fc" id="L44">        file.setReadable(true, false);</span>
+<span class="fc" id="L45">        file.setExecutable(true, false);</span>
+<span class="fc" id="L46">        file.setWritable(true, false);</span>
+<span class="fc" id="L47">    }</span>
+
+    public WebDriver openChromeBrowser (String baseURL) {
+<span class="fc" id="L50">        WebDriver driver = null;</span>
+        try{
+<span class="fc" id="L52">            String chromeDriverPath = System.getProperty(&quot;user.dir&quot;) + getChromeDriverPath();</span>
+<span class="fc" id="L53">            setExecutableMode(chromeDriverPath);</span>
+<span class="fc" id="L54">            System.out.println(&quot;---- Opening chrome browser&quot;);</span>
+<span class="fc" id="L55">            DesiredCapabilities capability = new DesiredCapabilities();</span>
+<span class="fc" id="L56">            System.setProperty(&quot;webdriver.chrome.driver&quot;, chromeDriverPath);</span>
+<span class="fc" id="L57">            capability.setJavascriptEnabled(true);</span>
+<span class="fc" id="L58">            capability.setCapability(&quot;chrome.switches&quot;, &quot;--start-maximized&quot;);</span>
+<span class="fc" id="L59">            capability.setCapability(ChromeOptions.CAPABILITY, new ChromeOptions());</span>
+<span class="fc" id="L60">            capability = DesiredCapabilities.chrome();</span>
+<span class="fc" id="L61">            capability.setBrowserName(&quot;chrome&quot;);</span>
+<span class="nc" id="L62">            driver = new ChromeDriver(capability);</span>
+<span class="nc" id="L63">            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);</span>
+<span class="nc" id="L64">            driver.manage().window().maximize();</span>
+<span class="nc" id="L65">            driver.manage().deleteAllCookies();</span>
+<span class="nc" id="L66">            driver.get(baseURL);</span>
+        }
+<span class="fc" id="L68">        catch (Exception e){</span>
+<span class="fc" id="L69">            System.out.println(&quot;Error: &quot; + e.getMessage());</span>
+<span class="fc" id="L70">            e.printStackTrace();</span>
+<span class="nc" id="L71">        }</span>
+<span class="fc" id="L72">        return driver;</span>
+    }
+
+
+    /**
+     * get path of file
+     * @param fileName
+     * */
+    public String getAbsolutePath(String fileName){
+<span class="nc" id="L81">        String path = &quot;&quot;;</span>
+        try{
+            File f;
+            Boolean bool;
+<span class="nc" id="L85">            f = new File(fileName);</span>
+<span class="nc" id="L86">            bool = f.exists();</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">            if (bool) {</span>
+<span class="nc" id="L88">                path = f.getAbsolutePath();</span>
+            }
+        }
+<span class="nc" id="L91">        catch (Exception ex){</span>
+<span class="nc" id="L92">            logger.error(&quot;Error: &quot; + ex.getMessage());</span>
+<span class="nc" id="L93">        }</span>
+<span class="nc" id="L94">        return path;</span>
+    }
+
+    public String[][] getTableArray(String xlFilePath, String sheetName, String tableName) {
+<span class="nc" id="L98">        String[][] tabArray = null;</span>
+
+        Workbook workbook;
+        try {
+<span class="nc" id="L102">            logger.info(&quot;File path: &quot; + xlFilePath);</span>
+<span class="nc" id="L103">            workbook = Workbook.getWorkbook(new File(xlFilePath));</span>
+<span class="nc" id="L104">            Sheet sheet = workbook.getSheet(sheetName);</span>
+            int startRow, startCol, endRow, endCol, ci, cj;
+<span class="nc" id="L106">            Cell tableStart = sheet.findCell(tableName);</span>
+<span class="nc" id="L107">            startRow = tableStart.getRow();</span>
+<span class="nc" id="L108">            startCol = tableStart.getColumn();</span>
+
+<span class="nc" id="L110">            Cell tableEnd = sheet.findCell(tableName, startCol + 1, startRow + 1,</span>
+                    100, 64000, false);
+
+<span class="nc" id="L113">            endRow = tableEnd.getRow();</span>
+<span class="nc" id="L114">            endCol = tableEnd.getColumn();</span>
+<span class="nc" id="L115">            tabArray = new String[endRow - startRow - 1][endCol - startCol - 1];</span>
+<span class="nc" id="L116">            ci = 0;</span>
+
+<span class="nc bnc" id="L118" title="All 2 branches missed.">            for (int i = startRow + 1; i &lt; endRow; i++, ci++) {</span>
+<span class="nc" id="L119">                cj = 0;</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">                for (int j = startCol + 1; j &lt; endCol; j++, cj++) {</span>
+<span class="nc" id="L121">                    tabArray[ci][cj] = sheet.getCell(j, i).getContents();</span>
+                }
+            }
+<span class="nc" id="L124">        } catch (BiffException | IOException ex) {</span>
+<span class="nc" id="L125">            logger.error(&quot;Error: &quot; + ex.getMessage());</span>
+<span class="nc" id="L126">        }</span>
+
+<span class="nc" id="L128">        return (tabArray);</span>
+    }
+
+
+    /**
+     * read data in urlinfo sheet
+     * */
+    public ArrayList&lt;String&gt; getListURLs() throws Exception{
+<span class="nc" id="L136">        ArrayList&lt;String&gt; listURLs = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L137">        String excelData = getAbsolutePath(&quot;resources//data//data.xls&quot;);</span>
+<span class="nc" id="L138">        String[][] urlInfo = getTableArray(excelData,&quot;data&quot;, &quot;urldata&quot;);</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">        for (int i = 0; i &lt; urlInfo.length; i++) {</span>
+<span class="nc" id="L140">            listURLs.add(urlInfo[i][0]);</span>
+        }
+<span class="nc" id="L142">        return listURLs;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>
