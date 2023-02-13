@@ -36,8 +36,3 @@ phases:
       
       - mvn clean verify package
       - ls -lrt
-
-artifacts:
-  files:
-    - src
-    #- target/surefire-reports
