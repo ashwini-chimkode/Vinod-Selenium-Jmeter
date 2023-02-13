@@ -34,15 +34,15 @@ phases:
       - echo "Unit Testing"
       - echo "##############"
       
-      - mvn clean test
-      - mv target/surefire-reports/index.html target/surefire-reports/junit-report.html
-      - aws s3 cp target/surefire-reports/junit-report.html s3://dep-junit-selenuim-reports/
+      - mvn clean test 
+      #- mv target/surefire-reports/index.html target/surefire-reports/junit-report.html
+      - aws s3 cp target/surefire-reports/index.html s3://dep-junit-selenuim-reports/
       
       - echo "###################################"
       - echo "JMeter Load Performence Testing"
       - echo "###################################"
       
-      - mvn verify
+      - mvn clean verify
       - aws s3 cp target/surefire-reports/jmeter/results/*.CSV s3://dep-junit-selenuim-reports/
 
 
