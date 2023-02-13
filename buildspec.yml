@@ -49,4 +49,4 @@ phases:
 artifacts:
   files:
     - src
-    - target/surefire-reports
+    #- target/surefire-reports
